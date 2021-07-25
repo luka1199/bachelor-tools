@@ -19,11 +19,11 @@ if (!fs.existsSync(analysisPath)) {
 }
 var analysis = fs.readFileSync(analysisPath).toString()
 var regex = /\"requiredModule\": \"\..*\"/g
-var newAnalysis = analysis.replace(regex, `\"requiredModule\": \"${moduleName}\"`)
+var matches = analysis.match(regex)
 
-var fileName = path.basename(analysisPath)
-var newFileName = path.parse(fileName).name + "_fixed" + path.parse(fileName).ext
-var newPath = path.join(path.dirname(analysisPath), newFileName)
-console.log('>> Saving fixed analysis to ' + newPath);
+if (matches != null) {
+    matches.forEach(match => {
+        console.log(match.split(': ')[1]);
+    });
+}
 
-fs.writeFileSync(newPath, newAnalysis)

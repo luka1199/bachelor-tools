@@ -1,0 +1,588 @@
+{
+    "functionId_1": {
+        "functionId": "functionId_1",
+        "functionName": "",
+        "isConstructor": false,
+        "args": {},
+        "returnTypeOfs": [
+            {
+                "typeOf": "Test",
+                "traceId": null
+            },
+            {
+                "typeOf": "Test",
+                "traceId": null
+            },
+            {
+                "typeOf": "Test",
+                "traceId": null
+            }
+        ],
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_3": {
+        "functionId": "functionId_3",
+        "functionName": "",
+        "isConstructor": false,
+        "args": {
+            "0": {
+                "argumentIndex": 0,
+                "argumentName": "cb",
+                "interactions": [
+                    {
+                        "code": "inputValue",
+                        "traceId": "trace__2",
+                        "typeof": "function"
+                    }
+                ]
+            }
+        },
+        "declarationEnclosingFunctionId": -1,
+        "returnTypeOfs": [],
+        "functionIid": 241,
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_7": {
+        "functionId": "functionId_7",
+        "functionName": "abs",
+        "isConstructor": false,
+        "args": {
+            "0": {
+                "argumentIndex": 0,
+                "argumentName": "input",
+                "interactions": [
+                    {
+                        "code": "inputValue",
+                        "traceId": "trace__4",
+                        "typeof": "string"
+                    },
+                    {
+                        "code": "methodCall",
+                        "traceId": "trace__4",
+                        "isComputed": false,
+                        "isOpAssign": false,
+                        "enclosingFunctionId": "functionId_7",
+                        "followingInteractions": [
+                            {
+                                "code": "operator",
+                                "traceId": null,
+                                "leftType": "string",
+                                "rightType": "string",
+                                "leftIsNaN": true,
+                                "rightIsNan": true,
+                                "leftToPrimitiveType": "string",
+                                "rightToPrimitiveType": "string",
+                                "leftToPrimitiveIsNaN": true,
+                                "rightToPrimitiveIsNaN": true,
+                                "operator": "===",
+                                "operandForInteraction": "left"
+                            }
+                        ],
+                        "iid": 163,
+                        "methodName": "charAt",
+                        "functionId": "functionId_9",
+                        "returnTypeOf": "string",
+                        "traceIdInTargetFunction": "trace__5"
+                    },
+                    {
+                        "code": "usedAsArgument",
+                        "traceId": "trace__4",
+                        "enclosingFunctionId": "functionId_3",
+                        "targetFunctionId": "functionId_5",
+                        "traceIdInTargetFunction": "trace__3",
+                        "argumentIndexInTargetFunction": "0"
+                    },
+                    {
+                        "code": "inputValue",
+                        "traceId": "trace__9",
+                        "typeof": "string"
+                    },
+                    {
+                        "code": "methodCall",
+                        "traceId": "trace__9",
+                        "isComputed": false,
+                        "isOpAssign": false,
+                        "enclosingFunctionId": "functionId_7",
+                        "followingInteractions": [
+                            {
+                                "code": "operator",
+                                "traceId": null,
+                                "leftType": "string",
+                                "rightType": "string",
+                                "leftIsNaN": true,
+                                "rightIsNan": true,
+                                "leftToPrimitiveType": "string",
+                                "rightToPrimitiveType": "string",
+                                "leftToPrimitiveIsNaN": true,
+                                "rightToPrimitiveIsNaN": true,
+                                "operator": "===",
+                                "operandForInteraction": "left"
+                            }
+                        ],
+                        "iid": 163,
+                        "methodName": "charAt",
+                        "functionId": "functionId_9",
+                        "returnTypeOf": "string",
+                        "traceIdInTargetFunction": "trace__10"
+                    },
+                    {
+                        "code": "methodCall",
+                        "traceId": "trace__9",
+                        "isComputed": false,
+                        "isOpAssign": false,
+                        "enclosingFunctionId": "functionId_7",
+                        "followingInteractions": [
+                            {
+                                "code": "operator",
+                                "traceId": null,
+                                "leftType": "string",
+                                "rightType": "string",
+                                "leftIsNaN": true,
+                                "rightIsNan": true,
+                                "leftToPrimitiveType": "string",
+                                "rightToPrimitiveType": "string",
+                                "leftToPrimitiveIsNaN": true,
+                                "rightToPrimitiveIsNaN": true,
+                                "operator": "===",
+                                "operandForInteraction": "left"
+                            }
+                        ],
+                        "iid": 219,
+                        "methodName": "charAt",
+                        "functionId": "functionId_9",
+                        "returnTypeOf": "string",
+                        "traceIdInTargetFunction": "trace__11"
+                    },
+                    {
+                        "code": "usedAsArgument",
+                        "traceId": "trace__9",
+                        "enclosingFunctionId": "functionId_7",
+                        "targetFunctionId": "functionId_15",
+                        "traceIdInTargetFunction": "trace__12",
+                        "argumentIndexInTargetFunction": "0"
+                    },
+                    {
+                        "code": "inputValue",
+                        "traceId": "trace__17",
+                        "typeof": "string"
+                    },
+                    {
+                        "code": "methodCall",
+                        "traceId": "trace__17",
+                        "isComputed": false,
+                        "isOpAssign": false,
+                        "enclosingFunctionId": "functionId_7",
+                        "followingInteractions": [
+                            {
+                                "code": "operator",
+                                "traceId": null,
+                                "leftType": "string",
+                                "rightType": "string",
+                                "leftIsNaN": true,
+                                "rightIsNan": true,
+                                "leftToPrimitiveType": "string",
+                                "rightToPrimitiveType": "string",
+                                "leftToPrimitiveIsNaN": true,
+                                "rightToPrimitiveIsNaN": true,
+                                "operator": "===",
+                                "operandForInteraction": "left"
+                            }
+                        ],
+                        "iid": 163,
+                        "methodName": "charAt",
+                        "functionId": "functionId_9",
+                        "returnTypeOf": "string",
+                        "traceIdInTargetFunction": "trace__18"
+                    },
+                    {
+                        "code": "methodCall",
+                        "traceId": "trace__17",
+                        "isComputed": false,
+                        "isOpAssign": false,
+                        "enclosingFunctionId": "functionId_7",
+                        "followingInteractions": [
+                            {
+                                "code": "operator",
+                                "traceId": null,
+                                "leftType": "string",
+                                "rightType": "string",
+                                "leftIsNaN": true,
+                                "rightIsNan": true,
+                                "leftToPrimitiveType": "string",
+                                "rightToPrimitiveType": "string",
+                                "leftToPrimitiveIsNaN": true,
+                                "rightToPrimitiveIsNaN": true,
+                                "operator": "===",
+                                "operandForInteraction": "left"
+                            }
+                        ],
+                        "iid": 219,
+                        "methodName": "charAt",
+                        "functionId": "functionId_9",
+                        "returnTypeOf": "string",
+                        "traceIdInTargetFunction": "trace__19"
+                    },
+                    {
+                        "code": "methodCall",
+                        "traceId": "trace__17",
+                        "isComputed": false,
+                        "isOpAssign": false,
+                        "enclosingFunctionId": "functionId_7",
+                        "followingInteractions": [
+                            {
+                                "code": "operator",
+                                "traceId": null,
+                                "leftType": "string",
+                                "rightType": "string",
+                                "leftIsNaN": true,
+                                "rightIsNan": true,
+                                "leftToPrimitiveType": "string",
+                                "rightToPrimitiveType": "string",
+                                "leftToPrimitiveIsNaN": true,
+                                "rightToPrimitiveIsNaN": true,
+                                "operator": "===",
+                                "operandForInteraction": "left"
+                            }
+                        ],
+                        "iid": 251,
+                        "methodName": "charAt",
+                        "functionId": "functionId_9",
+                        "returnTypeOf": "string",
+                        "traceIdInTargetFunction": "trace__20"
+                    },
+                    {
+                        "code": "methodCall",
+                        "traceId": "trace__17",
+                        "isComputed": false,
+                        "isOpAssign": false,
+                        "enclosingFunctionId": "functionId_7",
+                        "followingInteractions": [
+                            {
+                                "code": "convertedTo",
+                                "traceId": null,
+                                "convertedTo": "string",
+                                "isNaN": false,
+                                "toPrimitive": null,
+                                "operator": "+",
+                                "originalTypeof": "string"
+                            },
+                            {
+                                "code": "operator",
+                                "traceId": null,
+                                "leftType": "string",
+                                "rightType": "string",
+                                "leftIsNaN": true,
+                                "rightIsNan": true,
+                                "leftToPrimitiveType": "string",
+                                "rightToPrimitiveType": "string",
+                                "leftToPrimitiveIsNaN": true,
+                                "rightToPrimitiveIsNaN": true,
+                                "operator": "+",
+                                "operandForInteraction": "right"
+                            }
+                        ],
+                        "iid": 299,
+                        "methodName": "substr",
+                        "functionId": "functionId_23",
+                        "returnTypeOf": "string",
+                        "traceIdInTargetFunction": "trace__21"
+                    },
+                    {
+                        "code": "inputValue",
+                        "traceId": "trace__25",
+                        "typeof": "string"
+                    },
+                    {
+                        "code": "inputValue",
+                        "traceId": "trace__27",
+                        "typeof": "string"
+                    },
+                    {
+                        "code": "inputValue",
+                        "traceId": "trace__31",
+                        "typeof": "string"
+                    }
+                ]
+            }
+        },
+        "declarationEnclosingFunctionId": -1,
+        "returnTypeOfs": [
+            {
+                "typeOf": "string",
+                "traceId": "trace__4"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__9"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__17"
+            }
+        ],
+        "functionIid": 361,
+        "requiredModule": "../lib",
+        "isExported": true,
+        "constructedBy": ""
+    },
+    "functionId_9": {
+        "functionId": "functionId_9",
+        "functionName": "charAt",
+        "isConstructor": false,
+        "args": {},
+        "returnTypeOfs": [
+            {
+                "typeOf": "string",
+                "traceId": null
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__2"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__2"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__7"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__7"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__7"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__15"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__25"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__25"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__27"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__27"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__27"
+            }
+        ],
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_5": {
+        "functionId": "functionId_5",
+        "functionName": "equal",
+        "isConstructor": false,
+        "args": {},
+        "returnTypeOfs": [
+            {
+                "typeOf": "undefined",
+                "traceId": "trace__4"
+            },
+            {
+                "typeOf": "undefined",
+                "traceId": "trace__9"
+            },
+            {
+                "typeOf": "undefined",
+                "traceId": "trace__17"
+            }
+        ],
+        "requiredModule": "assert",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_11": {
+        "functionId": "functionId_11",
+        "functionName": "",
+        "isConstructor": false,
+        "args": {},
+        "declarationEnclosingFunctionId": "functionId_3",
+        "returnTypeOfs": [
+            {
+                "typeOf": "undefined",
+                "traceId": "trace__4"
+            }
+        ],
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_13": {
+        "functionId": "functionId_13",
+        "functionName": "",
+        "isConstructor": false,
+        "args": {
+            "0": {
+                "argumentIndex": 0,
+                "argumentName": "cb",
+                "interactions": [
+                    {
+                        "code": "inputValue",
+                        "traceId": "trace__7",
+                        "typeof": "function"
+                    }
+                ]
+            }
+        },
+        "declarationEnclosingFunctionId": -1,
+        "returnTypeOfs": [],
+        "functionIid": 401,
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_15": {
+        "functionId": "functionId_15",
+        "functionName": "resolve",
+        "isConstructor": false,
+        "args": {},
+        "declarationEnclosingFunctionId": -1,
+        "returnTypeOfs": [
+            {
+                "typeOf": "string",
+                "traceId": "trace__2"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__7"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__25"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__27"
+            }
+        ],
+        "requiredModule": "path",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_17": {
+        "functionId": "functionId_17",
+        "functionName": "cwd",
+        "isConstructor": false,
+        "args": {},
+        "returnTypeOfs": [
+            {
+                "typeOf": "string",
+                "traceId": "trace__9"
+            }
+        ],
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_19": {
+        "functionId": "functionId_19",
+        "functionName": "",
+        "isConstructor": false,
+        "args": {},
+        "declarationEnclosingFunctionId": "functionId_13",
+        "returnTypeOfs": [
+            {
+                "typeOf": "undefined",
+                "traceId": "trace__9"
+            }
+        ],
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_21": {
+        "functionId": "functionId_21",
+        "functionName": "",
+        "isConstructor": false,
+        "args": {
+            "0": {
+                "argumentIndex": 0,
+                "argumentName": "cb",
+                "interactions": [
+                    {
+                        "code": "inputValue",
+                        "traceId": "trace__15",
+                        "typeof": "function"
+                    }
+                ]
+            }
+        },
+        "declarationEnclosingFunctionId": -1,
+        "returnTypeOfs": [],
+        "functionIid": 561,
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_23": {
+        "functionId": "functionId_23",
+        "functionName": "substr",
+        "isConstructor": false,
+        "args": {},
+        "returnTypeOfs": [
+            {
+                "typeOf": "string",
+                "traceId": "trace__7"
+            },
+            {
+                "typeOf": "string",
+                "traceId": "trace__27"
+            }
+        ],
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_25": {
+        "functionId": "functionId_25",
+        "functionName": "home",
+        "isConstructor": false,
+        "args": {},
+        "declarationEnclosingFunctionId": -1,
+        "returnTypeOfs": [
+            {
+                "typeOf": "string",
+                "traceId": "trace__17"
+            }
+        ],
+        "requiredModule": "./ul",
+        "isExported": false,
+        "constructedBy": ""
+    },
+    "functionId_27": {
+        "functionId": "functionId_27",
+        "functionName": "",
+        "isConstructor": false,
+        "args": {},
+        "declarationEnclosingFunctionId": "functionId_21",
+        "returnTypeOfs": [
+            {
+                "typeOf": "undefined",
+                "traceId": "trace__17"
+            }
+        ],
+        "requiredModule": "",
+        "isExported": false,
+        "constructedBy": ""
+    }
+}

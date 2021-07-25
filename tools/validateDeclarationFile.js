@@ -2,28 +2,21 @@ const fs = require('fs')
 const path = require('path')
 
 if (!process.argv[2]) {
-    console.log("No analysis path specified.")
+    console.log("No declaration file path specified.")
     process.exit()
 }
 
-const analysisPath = process.argv[2]
+const declarationFilePath = process.argv[2]
 
-if (!fs.existsSync(analysisPath)) {
-    console.log('ERROR');
+if (!fs.existsSync(declarationFilePath)) {
+    console.log('NOK');
     process.exit()
 }
-var analysis = fs.readFileSync(analysisPath).toString()
+var declarationFile = fs.readFileSync(declarationFilePath).toString()
 
-try {
-    if (analysis != "") {
-        JSON.parse(analysis)
-    } else {
-        console.log('EMPTY');
-        process.exit()
-    }
-} catch (error) {
-    console.log('INVALID');
+if (declarationFile != "") {
+    console.log('OK');
+} else {
+    console.log('EMPTY');
     process.exit()
-    // console.log(error);
 }
-console.log('OK');
