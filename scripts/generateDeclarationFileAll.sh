@@ -14,12 +14,12 @@ rm -f $LOG_FILE_CLEANED
 rm -rf /tmp/results
 mkdir /tmp/results
 
-N=4
+N=6
 for MODULE_PATH in $OUTPUT_FOLDER/*; do
     MODULE=$(basename $MODULE_PATH)
 
     echo ">> $MODULE"
-
+    
     timeout 100 ../ts-declaration-file-generator-service/cli/generateDeclarationFile.sh $MODULE_PATH/normal/output_fixed.json $MODULE /tmp/results
     timeout 60 cp /tmp/results/$MODULE/index.d.ts $MODULE_PATH/normal/
     CODE=$?

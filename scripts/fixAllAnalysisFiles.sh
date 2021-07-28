@@ -6,7 +6,7 @@ SCRIPT_PATH="$(
 
 OUTPUT_FOLDER="$(pwd)/$1"
 
-N=4
+N=10
 for MODULE_PATH in $OUTPUT_FOLDER/*; do
     (
         MODULE=$(basename $MODULE_PATH)

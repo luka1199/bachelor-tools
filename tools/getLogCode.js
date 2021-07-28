@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 if (process.argv[2] == null) {
-    console.log("No log line path specified.")
+    console.log("No log line specified.")
     process.exit()
 }
 
