@@ -5,29 +5,38 @@ SCRIPT_PATH="$(
     pwd -P
 )"
 
-OUTPUT_FOLDER="$(pwd)/$1"
-OUTPUT_FOLDER_COMPARE="$(pwd)/$2"
-LOG_FILE_NORMAL="$OUTPUT_FOLDER/../compare_declaration_files_normal.log"
-LOG_FILE_CLEANED="$OUTPUT_FOLDER/../compare_declaration_files_cleaned.log"
-rm -f $LOG_FILE_NORMAL
-rm -f $LOG_FILE_CLEANED
-touch $LOG_FILE_NORMAL
-touch $LOG_FILE_CLEANED
+RESULTS_FOLDER="$(pwd)/$1"
+DEFINITELY_TYPED_FOLDER="$(pwd)/$2"
+OUTPUT_FOLDER="$RESULTS_FOLDER/output"
+rm -f "$RESULTS_FOLDER/compare/comparison.csv"
+mkdir -p "$RESULTS_FOLDER/compare"
+rm -rf "$RESULTS_FOLDER/compare/differences"
+mkdir "$RESULTS_FOLDER/compare/differences"
+echo '"ModuleName", "Template", "template-is-different", "type-solvable-difference", "type-unsolvable-difference", "extra-parameter", "missing-parameter", function-missing", "function-extra", "function-overloading-difference, "export-assignment-is-different"' \
+    > "$RESULTS_FOLDER/compare/comparison.csv"
 
 N=4
-for MODULE_PATH in $OUTPUT_FOLDER/*; do
-    # (
-        MODULE=$(basename $MODULE_PATH)
+for MODULE in $(cat $RESULTS_FOLDER/modulesWithDeclarationFile.csv); do
+    (
         echo ">> $MODULE"
-        docker run --rm -v $OUTPUT_FOLDER_COMPARE/$MODULE/myfunction.expected.d.ts:/usr/local/app/expected.d.ts -v $(pwd)/examples/module-function/myfunction.actual.d.ts:/usr/local/app/actual.d.ts dts-compare --expected-declaration-file expected.d.ts --actual-declaration-file actual.d.ts
-        # echo "$MODULE - $(node $SCRIPT_PATH/../tools/validateDeclarationFile.js $MODULE_PATH/normal/index.d.ts)" >> $LOG_FILE_NORMAL
-        # echo "$MODULE - $(node $SCRIPT_PATH/../tools/validateDeclarationFile.js $MODULE_PATH/cleaned/index.d.ts)" >> $LOG_FILE_CLEANED
-    # ) &
+        echo "  > Generating CSV..."
+        docker run --rm -v $DEFINITELY_TYPED_FOLDER/types/$MODULE/index.d.ts:/usr/local/app/expected.d.ts -v $OUTPUT_FOLDER/$MODULE/cleaned/index.d.ts:/usr/local/app/actual.d.ts \
+            dts-compare --expected-declaration-file expected.d.ts \
+                --actual-declaration-file actual.d.ts \
+                --output-format "csv" >> "$RESULTS_FOLDER/compare/comparison.csv" \
+                --module-name $MODULE
 
-    # # allow to execute up to $N jobs in parallel
-    # if [[ $(jobs -r -p | wc -l) -ge $N ]]; then
-    #     wait -n
-    # fi
+        echo "  > Generating JSON..."
+        mkdir -p "$RESULTS_FOLDER/compare/differences"
+        docker run --rm -v $DEFINITELY_TYPED_FOLDER/types/$MODULE/index.d.ts:/usr/local/app/expected.d.ts -v $OUTPUT_FOLDER/$MODULE/cleaned/index.d.ts:/usr/local/app/actual.d.ts \
+            dts-compare --expected-declaration-file expected.d.ts \
+                --actual-declaration-file actual.d.ts \
+                --output-format "json" > "$RESULTS_FOLDER/compare/differences/$MODULE.json" \
+                --module-name $MODULE
+    ) &
+
+    # allow to execute up to $N jobs in parallel
+    if [[ $(jobs -r -p | wc -l) -ge $N ]]; then
+        wait -n
+    fi
 done
-
-docker run --rm -v $(pwd)/examples/module-function/myfunction.expected.d.ts:/usr/local/app/expected.d.ts -v $(pwd)/examples/module-function/myfunction.actual.d.ts:/usr/local/app/actual.d.ts dts-compare --expected-declaration-file expected.d.ts --actual-declaration-file actual.d.ts
