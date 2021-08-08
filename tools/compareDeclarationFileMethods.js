@@ -1,7 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 
-const properties = ["templateIsDifferent",
+const properties = [
+    "templateIsDifferent",
     "typeSolvableDifference",
     "typeUnsolvableDifference",
     "extraParameter",
@@ -100,10 +101,12 @@ function getCombinedSummary(comparisonReadme, comparisonTest, moduleList, onlyCo
         exportAssignmentIsDifferent: {}
     }
 
+    counter = 0
     moduleList.forEach(module => {
         if (module == "") return
         if (onlyCommonModules && (comparisonReadme[module] == null || comparisonTest[module] == null)) return
-
+        counter++
+        console.log(counter);
         // Readme method
         if (comparisonReadme[module] != null) {
             keys.forEach(key => {
