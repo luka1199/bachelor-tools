@@ -9,7 +9,7 @@
     "instrument": "sh ./bin/instrument.sh ./module/lib ./module/instrumented",
     "test": "mocha test",
     "preinstall": "rm -rf jalangi2/",
-    "postinstall": "git clone https://github.com/Samsung/jalangi2.git && npm install --prefix jalangi2/ && chmod +x bin/*.sh",
+    "postinstall": "git clone https://github.com/Samsung/jalangi2.git && npm install --prefix jalangi2/ && chmod +x scripts/*.sh",
     "babel": "babel babel/src -d babel/lib"
   },
   "repository": {

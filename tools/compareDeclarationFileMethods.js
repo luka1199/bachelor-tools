@@ -40,6 +40,13 @@ function main() {
     console.table(combinedCommon)
     console.log("All modules:");
     console.table(combinedAll)
+
+    if (process.argv[4]) {
+        console.log(`Saving results to ${path.join(process.argv[4], "comparisonCommonModules.json")}...`);
+        fs.writeFileSync(path.join(process.argv[4], "comparisonCommonModules.json"), JSON.stringify(combinedCommon, null, 2))
+        console.log(`Saving results to ${path.join(process.argv[4], "comparisonAllModules.json")}...`);
+        fs.writeFileSync(path.join(process.argv[4], "comparisonAllModules.json"), JSON.stringify(combinedAll, null, 2))
+    }
 }
 
 function parseComparison(comparisonRaw) {
@@ -74,7 +81,6 @@ function getCombinedSummary(comparisonReadme, comparisonTest, moduleList, onlyCo
 
     var keys = Object.keys(getCategoryDataTemplate())
 
-    // Readme method
     var values = {
         templateIsDifferent: [],
         typeSolvableDifference: [],
@@ -101,12 +107,9 @@ function getCombinedSummary(comparisonReadme, comparisonTest, moduleList, onlyCo
         exportAssignmentIsDifferent: {}
     }
 
-    counter = 0
     moduleList.forEach(module => {
         if (module == "") return
         if (onlyCommonModules && (comparisonReadme[module] == null || comparisonTest[module] == null)) return
-        counter++
-        console.log(counter);
         // Readme method
         if (comparisonReadme[module] != null) {
             keys.forEach(key => {
@@ -124,6 +127,7 @@ function getCombinedSummary(comparisonReadme, comparisonTest, moduleList, onlyCo
             keys.forEach(key => {
                 if (key == "template") return
                 var value = parseInt(comparisonTest[module][key])
+                if (key == "typeUnsolvableDifference" && value == 23) console.log(module);
                 if (Number.isNaN(value)) return
                 categoryDataTest[key].total += value
                 categoryDataTest[key].count++
@@ -136,7 +140,6 @@ function getCombinedSummary(comparisonReadme, comparisonTest, moduleList, onlyCo
     if (onlyCommonModules) {
         Object.keys(comparisonCounter).forEach(key => {
             comparisonCounter[key]= {equal: 0, readmeMore: 0, testMore: 0}
-            console.log(valuesReadme[key]);
             for (let i = 0; i < valuesReadme[key].length; i++) {
                 const readmeValue = valuesReadme[key][i];
                 const testValue = valuesTest[key][i];
@@ -149,6 +152,8 @@ function getCombinedSummary(comparisonReadme, comparisonTest, moduleList, onlyCo
                 }
             }
         });
+        printPlotValues(valuesReadme, valuesTest, 'typeSolvableDifference')
+        printPlotValues(valuesReadme, valuesTest, 'typeUnsolvableDifference')
     }
 
     keys.forEach(key => {
@@ -232,4 +237,20 @@ function median(values) {
         return values[half];
 
     return (values[half - 1] + values[half]) / 2.0;
+}
+
+function printPlotValues(valuesReadme, valuesTest, valueKey) {
+    var coordinateCounter = {}
+    for (let i = 0; i < valuesReadme[valueKey].length; i++) {
+        const value1 = valuesReadme[valueKey][i];
+        const value2 = valuesTest[valueKey][i];
+        if (coordinateCounter[`${value1},${value2}`] == null) coordinateCounter[`${value1},${value2}`] = 0
+        coordinateCounter[`${value1},${value2}`]++
+    }
+    console.log()
+    console.log(`${valueKey}:`);
+    Object.keys(coordinateCounter).forEach(key => {
+        var values = key.split(',')
+        console.log(`${values[0]} ${values[1]} ${coordinateCounter[key]}`);
+    });
 }
