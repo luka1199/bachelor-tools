@@ -1,9 +1,10 @@
 #!/bin/bash
 
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-ROOT_PATH=$SCRIPT_PATH/..
-MODULES_FOLDER="$(pwd)/$1"
-LOG_FILE="$MODULES_FOLDER/../test_clean_instrumented_no_analysis.log"
+ROOT_PATH=$SCRIPT_PATH/../..
+MODULES_FOLDER=$1
+MODULES_TO_TEST=$2
+LOG_FILE="$MODULES_FOLDER/../test_instrumented_no_analysis.log"
 
 # Load extracted jalangi without analysis
 mkdir -p $MODULES_FOLDER/../node_modules/jalangiExtracted
@@ -11,12 +12,12 @@ cp $MODULES_FOLDER/../jalangiExtracted/jalangiPlain.js $MODULES_FOLDER/../node_m
 
 cd "$MODULES_FOLDER"
 N=4
-for MODULE in $(node $ROOT_PATH/tools/getModulesMissing.js ../modulesTest.csv ../test_instrumented_no_analysis.log); do
+for MODULE in $(node $ROOT_PATH/tools/getModulesMissing.js $MODULES_TO_TEST ../test_instrumented_no_analysis.log); do
     (
         echo ""
         echo ">> Testing $MODULE with instrumentation"
         cd "$MODULES_FOLDER/$MODULE/lib_instrumented"
-        timeout 100 npm run __test__
+        timeout 100 npm run test
         CODE=$?
         if [[ $CODE -eq 0 ]]; then
             LOG_OUTPUT="OK"

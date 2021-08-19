@@ -1,10 +1,11 @@
 #!/bin/bash
 CURRENT_FOLDER=$(pwd)
-MODULES_FOLDER="$(pwd)/$1"
+MODULES_FOLDER="$1"
+MODULES_TO_TEST=$2
 
 cd "$MODULES_FOLDER"
 N=10
-for MODULE in $(sed -n '1075,1922p' "../modulesTest.csv"); do
+for MODULE in $(sed -n '1075,1922p' "$MODULES_TO_TEST"); do
     (
         echo ""
         echo ">> Copying dependencies of $MODULE"

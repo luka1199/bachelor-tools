@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-ROOT_PATH=$SCRIPT_PATH/..
+ROOT_PATH=$SCRIPT_PATH/../..
 
 JALANGI_PATH="$ROOT_PATH/jalangi2"
 

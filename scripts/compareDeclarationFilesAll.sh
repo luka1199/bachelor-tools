@@ -5,8 +5,8 @@ SCRIPT_PATH="$(
     pwd -P
 )"
 
-RESULTS_FOLDER="$(pwd)/$1"
-DEFINITELY_TYPED_FOLDER="$(pwd)/$2"
+RESULTS_FOLDER="$1"
+DEFINITELY_TYPED_FOLDER="$2"
 OUTPUT_FOLDER="$RESULTS_FOLDER/output"
 rm -f "$RESULTS_FOLDER/compare/comparison.csv"
 mkdir -p "$RESULTS_FOLDER/compare"

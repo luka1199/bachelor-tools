@@ -1,6 +1,6 @@
 #!/bin/bash
 CURRENT_FOLDER=$(pwd)
-MODULES_FOLDER="$(pwd)/$1"
+MODULES_FOLDER="$1"
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 LOG_FILE="$MODULES_FOLDER/../install.log"
 
@@ -10,8 +10,8 @@ OIFS="$IFS"
 IFS=$'\n'
 for LINE in $(cat "$LOG_FILE"); do
     (
-        MODULE=$(node $SCRIPT_PATH/../tools/getLogModuleName.js "$LINE")
-        LOG_CODE=$(node $SCRIPT_PATH/../tools/getLogCode.js "$LINE")
+        MODULE=$(node $SCRIPT_PATH/../../tools/getLogModuleName.js "$LINE")
+        LOG_CODE=$(node $SCRIPT_PATH/../../tools/getLogCode.js "$LINE")
         if [[ $LOG_CODE == "TIMEOUT" ]]; then
 
             echo ""

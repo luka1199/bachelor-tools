@@ -1,12 +1,14 @@
 #!/bin/bash
+
+SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
+ROOT_PATH="$( cd "$(dirname "$0")" ; pwd -P )/.."
 CURRENT_FOLDER=$(pwd)
-MODULES_FOLDER="$(pwd)/$1"
+MODULES_FOLDER="$1"
 LOG_FILE="$MODULES_FOLDER/../install.log"
-rm -f $LOG_FILE
 
 cd "$MODULES_FOLDER"
 N=4
-for MODULE in $(cat "../modulesWithTestScript.csv"); do
+for MODULE in $(node $ROOT_PATH/tools/getModulesMissing.js ../modulesInstall.csv ../install.log); do
     (
         echo ""
         echo ">> Installing dependencies of $MODULE"
@@ -26,6 +28,7 @@ for MODULE in $(cat "../modulesWithTestScript.csv"); do
                 LOG_OUTPUT="NOK"
             fi
         fi
+        
         echo "$MODULE - $LOG_OUTPUT" >>$LOG_FILE
     ) &
 

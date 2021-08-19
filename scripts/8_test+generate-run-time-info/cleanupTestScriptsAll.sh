@@ -1,12 +1,13 @@
 #!/bin/bash
 CURRENT_FOLDER=$(pwd)
-MODULES_FOLDER="$(pwd)/$1"
+MODULES_FOLDER=$1
+MODULES_TO_TEST=$2
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-ROOT_PATH=$SCRIPT_PATH/..
+ROOT_PATH=$SCRIPT_PATH/../..
 
 cd "$MODULES_FOLDER"
 N=4
-for MODULE in $(cat "../modulesTest.csv"); do
+for MODULE in $(cat "$MODULES_TO_TEST"); do
     (
         echo ""
         echo ">> Cleaning up $MODULE test script"

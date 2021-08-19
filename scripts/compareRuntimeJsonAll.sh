@@ -1,8 +1,8 @@
 #!/bin/bash
 CURRENT_FOLDER=$(pwd)
-OUTPUT_FOLDER="$(pwd)/$1"
+OUTPUT_FOLDER="$1"
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-ROOT_PATH=$SCRIPT_PATH/..
+ROOT_PATH=$SCRIPT_PATH/../..
 
 cd "$OUTPUT_FOLDER"
 N=4

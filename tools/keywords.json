@@ -1,0 +1,51 @@
+{
+    "Testing frameworks": {
+        "cypress": "Cypress",
+        "tap": "Node-Tap",
+        "mocha": "Mocha",
+        "lab": "@hapi/lab",
+        "ava": "AVA",
+        "tsd": "tsd",
+        "jasmine": "Jasmine",
+        "tape": "Tape",
+        "karma": "Karma",
+        "jest": "Jest",
+        "vows": "Vows",
+        "flow": "Flow-JS",
+        "nodeunit": "Nodeunit",
+        "ocular-test": "Ocular-dev-tools",
+        "zuul": "Zuul",
+        "expresso": "Expresso",
+        "testem": "Test’em",
+        "zap": "Zap"
+    },
+    "Code analysis tool": {
+        "eslint": "ESLint",
+        "xo": "xo",
+        "jshint": "JSHint",
+        "tslint": "TSLint",
+        "dtslint": "DTSLint",
+        "standard": "StandardJS",
+        "semistandard": "Semi-Standard",
+        "c8": "c8",
+        "coffeelint": "CoffeeLint"
+    },
+    "Task runner": {
+        "grunt": "Grunt",
+        "gulp": "Gulp",
+        "nwb": "nwb",
+        "aegir": "Aegir",
+        "lerna": "Lerna",
+        "wsrun": "Wsrun",
+        "ember": "Ember.js"
+    },
+    "Build tool": {
+        "make": "Make"
+    },
+    "Browser": {
+        "phantomjs": "PhantomJS"
+    },
+    "Other": {
+        "node": "Nodejs"
+    }
+}

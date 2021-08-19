@@ -1,12 +1,13 @@
 #!/bin/bash
 CURRENT_FOLDER=$(pwd)
-MODULES_FOLDER="$(pwd)/$1"
+MODULES_FOLDER=$1
+MODULES_WITH_TEST_SCRIPT=$2
 
 cd "$MODULES_FOLDER"
 N=4
 OIFS="$IFS"
 IFS=$'\n'
-for MODULE in $(cat "../modulesInstall.csv"); do
+for MODULE in $(cat $MODULES_WITH_TEST_SCRIPT); do
     (
         echo ""
         echo ">> Injecting Jalangi into module $MODULE"

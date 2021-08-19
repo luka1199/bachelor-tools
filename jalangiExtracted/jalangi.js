@@ -10785,7 +10785,7 @@ if (typeof J$ === 'undefined') {
 })(J$);
 
 
-J$.initParams = {"jsonOutputPath":"/mnt/h/Users/Luka99/Dokumente/Projekte/Bachelorarbeit/bachelor-tools/scripts/../module/output/output.json"};
+J$.initParams = {"jsonOutputPath":"/h/Users/Luka99/Dokumente/Projekte/Bachelorarbeit/bachelor-tools/scripts/7_installation/../../module/output/output.json"};
 /* global J$ */
 
 "use strict";

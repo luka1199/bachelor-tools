@@ -4,13 +4,13 @@ SCRIPT_PATH="$(
     pwd -P
 )"
 
-OUTPUT_FOLDER="$(pwd)/$1"
+OUTPUT_FOLDER="$1"
 
 N=4
 for MODULE_PATH in $OUTPUT_FOLDER/*; do
     (
         MODULE=$(basename $MODULE_PATH)
-        node $SCRIPT_PATH/../tools/printRequiredModule.js $MODULE $MODULE_PATH/cleaned/output.json
+        node $SCRIPT_PATH/../../tools/printRequiredModule.js $MODULE $MODULE_PATH/cleaned/output.json
     ) &
 
     # allow to execute up to $N jobs in parallel

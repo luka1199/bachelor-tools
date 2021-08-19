@@ -1,6 +1,7 @@
 #!/bin/bash
 CURRENT_FOLDER=$(pwd)
-MODULES_FOLDER="$(pwd)/$1"
+MODULES_FOLDER=$1
+MODULES_TO_TEST=$2
 LOG_FILE="$MODULES_FOLDER/../test.log"
 ERROR_LOG_FILE="$MODULES_FOLDER/../test_errors.log"
 rm -f $LOG_FILE
@@ -8,7 +9,7 @@ rm -f $ERROR_LOG_FILE
 
 cd "$MODULES_FOLDER"
 N=4
-for MODULE in $(cat "../modulesTest.csv"); do
+for MODULE in $(cat "$MODULES_TO_TEST"); do
     (
         echo ""
         echo ">> Testing $MODULE"

@@ -34,10 +34,3 @@ do
     fi
 
 done < $MODULES_WITH_GITHUB_REPO
-
-wait
-
-# COUNT_EMPTY_DIRECTORIES=$(find $OUTPUT_DIRECTORY -type d -empty | wc -l | tr -d '[:space:]')
-# echo "Cleaning empty directories: $COUNT_EMPTY_DIRECTORIES ..."
-
-# find $OUTPUT_DIRECTORY -type d -empty -delete
