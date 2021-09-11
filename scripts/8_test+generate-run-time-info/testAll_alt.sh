@@ -14,7 +14,7 @@ for MODULE in $(node $ROOT_PATH/tools/getModulesMissing.js $MODULES_TO_TEST ../t
         echo ">> Testing $MODULE"
 
         cd "$MODULES_FOLDER/$MODULE/src"
-        sudo timeout 120 npm run test
+        sudo timeout 100 npm run test
         CODE=$?
         if [[ $CODE -eq 0 ]]; then
             LOG_OUTPUT="OK"
