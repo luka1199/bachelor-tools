@@ -4,16 +4,16 @@ SCRIPT_PATH="$(
     pwd -P
 )"
 
-RESULTS_FOLDER="$1"
-LOG_FILE_NORMAL="$RESULTS_FOLDER/../validate_analysis_normal.log"
-LOG_FILE_CLEANED="$RESULTS_FOLDER/../validate_analysis_cleaned.log"
+OUTPUT_FOLDER="$1"
+LOG_FILE_NORMAL="$OUTPUT_FOLDER/../validate_analysis_normal.log"
+LOG_FILE_CLEANED="$OUTPUT_FOLDER/../validate_analysis_cleaned.log"
 rm -f $LOG_FILE_NORMAL
 rm -f $LOG_FILE_CLEANED
 touch $LOG_FILE_NORMAL
 touch $LOG_FILE_CLEANED
 
 N=4
-for MODULE_PATH in $RESULTS_FOLDER/*; do
+for MODULE_PATH in $OUTPUT_FOLDER/*; do
     (
         MODULE=$(basename $MODULE_PATH)
         echo ">> $MODULE"

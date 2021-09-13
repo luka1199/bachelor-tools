@@ -4,18 +4,18 @@ SCRIPT_PATH="$(
     pwd -P
 )"
 
-RESULTS_FOLDER="$1"
+OUTPUT_FOLDER="$1"
 
-LOG_FILE_NORMAL="$RESULTS_FOLDER/../generate_declaration_file_normal.log"
+LOG_FILE_NORMAL="$OUTPUT_FOLDER/../generate_declaration_file_normal.log"
 rm -f $LOG_FILE_NORMAL
-LOG_FILE_CLEANED="$RESULTS_FOLDER/../generate_declaration_file_cleaned.log"
+LOG_FILE_CLEANED="$OUTPUT_FOLDER/../generate_declaration_file_cleaned.log"
 rm -f $LOG_FILE_CLEANED
 
 rm -rf /tmp/results
 mkdir /tmp/results
 
 N=6
-for MODULE_PATH in $RESULTS_FOLDER/*; do
+for MODULE_PATH in $OUTPUT_FOLDER/*; do
     MODULE=$(basename $MODULE_PATH)
 
     echo ">> $MODULE"

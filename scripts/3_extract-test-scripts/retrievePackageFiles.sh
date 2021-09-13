@@ -3,7 +3,6 @@
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 MODULES_WITH_GITHUB_REPO=$1
-
 OUTPUT_DIRECTORY=$2
 
 rm -rf $OUTPUT_DIRECTORY
@@ -16,7 +15,7 @@ do
 		continue
 	fi
     echo "Exctracting package.json file for module: $moduleName | $repo | $commitHash"
-	if [[ $commitHash == "" ]]
+	if [[ $commitHash == "" && $repo != "" ]]
 	then	
 		commitHash=$(git remote show https://${repo} | grep 'HEAD branch' | cut -d' ' -f5)
 	fi
