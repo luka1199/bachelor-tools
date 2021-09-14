@@ -127,7 +127,7 @@ function getCombinedSummary(comparisonReadme, comparisonTest, moduleList, onlyCo
             keys.forEach(key => {
                 if (key == "template") return
                 var value = parseInt(comparisonTest[module][key])
-                if (key == "typeUnsolvableDifference" && value == 23) console.log(module);
+                // if (key == "typeUnsolvableDifference" && value == 23) console.log(module);
                 if (Number.isNaN(value)) return
                 categoryDataTest[key].total += value
                 categoryDataTest[key].count++
@@ -152,8 +152,11 @@ function getCombinedSummary(comparisonReadme, comparisonTest, moduleList, onlyCo
                 }
             }
         });
-        printPlotValues(valuesReadme, valuesTest, 'typeSolvableDifference')
-        printPlotValues(valuesReadme, valuesTest, 'typeUnsolvableDifference')
+        // printPlotValues(valuesReadme, valuesTest, 'typeSolvableDifference')
+        // printPlotValues(valuesReadme, valuesTest, 'typeUnsolvableDifference')
+    } else {
+        // printPlotValues(null, valuesTest, 'typeSolvableDifference')
+        // printPlotValues(null, valuesTest, 'typeUnsolvableDifference')
     }
 
     keys.forEach(key => {
@@ -240,17 +243,31 @@ function median(values) {
 }
 
 function printPlotValues(valuesReadme, valuesTest, valueKey) {
-    var coordinateCounter = {}
-    for (let i = 0; i < valuesReadme[valueKey].length; i++) {
-        const value1 = valuesReadme[valueKey][i];
-        const value2 = valuesTest[valueKey][i];
-        if (coordinateCounter[`${value1},${value2}`] == null) coordinateCounter[`${value1},${value2}`] = 0
-        coordinateCounter[`${value1},${value2}`]++
+    if (valuesReadme == null) {
+        var valueCounter = {}
+        for (let i = 0; i < valuesTest[valueKey].length; i++) {
+            const value = valuesTest[valueKey][i];
+            if (valueCounter[value] == null) valueCounter[value] = 0
+            valueCounter[value]++
+        }
+        console.log()
+        console.log(`${valueKey}:`);
+        Object.keys(valueCounter).forEach(value => {
+            console.log(`(${value},${valueCounter[value]})`);
+        });
+    } else {
+        var coordinateCounter = {}
+        for (let i = 0; i < valuesReadme[valueKey].length; i++) {
+            const value1 = valuesReadme[valueKey][i];
+            const value2 = valuesTest[valueKey][i];
+            if (coordinateCounter[`${value1},${value2}`] == null) coordinateCounter[`${value1},${value2}`] = 0
+            coordinateCounter[`${value1},${value2}`]++
+        }
+        console.log()
+        console.log(`${valueKey}:`);
+        Object.keys(coordinateCounter).forEach(key => {
+            var values = key.split(',')
+            console.log(`${values[0]} ${values[1]} ${coordinateCounter[key]}`);
+        });
     }
-    console.log()
-    console.log(`${valueKey}:`);
-    Object.keys(coordinateCounter).forEach(key => {
-        var values = key.split(',')
-        console.log(`${values[0]} ${values[1]} ${coordinateCounter[key]}`);
-    });
 }

@@ -26,16 +26,18 @@ results/
 ├─ package_files/
 │  ├─ module1/
 │  │  └─ package.json
-│  └─ module2/
-│     └─ package.json
+│  ├─ module2/
+│  │  └─ package.json
+│  └─ ...
 ├─ modules/
 │  ├─ module1/
 │  │  ├─ src/
 │  │  ├─ lib/
 │  │  ├─ src_instrumented/
 │  │  └─ lib_instrumented/
-│  └─ module2/
-│     └─ ...
+│  ├─ module2/
+│  │  └─ ...
+│  └─ ...
 ├─ output/
 │  ├─ module1/
 │  │  ├─ normal
@@ -46,8 +48,9 @@ results/
 │  │     ├─ output.json
 │  │     ├─ output_fixed.json
 │  │     └─ index.d.ts
-│  └─ module2/
-│     └─ ...
+│  ├─ module2/
+│  │  └─ ...
+│  └─ ...
 ├─ compare/
 │  ├─ differences/
 │  │  ├─ module1.json
