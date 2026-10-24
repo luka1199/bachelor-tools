@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luka1199/run-time-information-gathering-tests.git"
+    "url": "git+https://github.com/luka1199/bachelor-tools.git"
   },
   "author": {
     "name": "Luka Steinbach",
@@ -21,9 +21,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luka1199/run-time-information-gathering-tests/issues"
+    "url": "https://github.com/luka1199/bachelor-tools/issues"
   },
-  "homepage": "https://github.com/luka1199/run-time-information-gathering-tests#readme",
+  "homepage": "https://github.com/luka1199/bachelor-tools#readme",
   "dependencies": {
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
